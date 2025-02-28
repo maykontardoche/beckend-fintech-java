@@ -1,5 +1,7 @@
+import java.util.UUID;
+
 public class Cliente {
-    private int id;
+    private UUID id = UUID.randomUUID();
     private String nome;
     private String cpf;
     private String email;
@@ -9,13 +11,12 @@ public class Cliente {
     }
     
     // Construtor com parâmetros
-    public Cliente(int id, String nome, String cpf, String email) {
-        this.id = id;
+    public Cliente(String nome, String cpf, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
     }
-    
+
     // Método para exibir os dados do cliente
     public void mostrarDados() {
         System.out.println("Exibindo dados do cliente: " + nome + ", CPF: " + cpf + ", Email: " + email);
@@ -25,5 +26,10 @@ public class Cliente {
     public void atualizarEmail(String novoEmail) {
         this.email = novoEmail;
         System.out.println("Atualizando email para: " + novoEmail);
+    }
+    // Sobrescrito o método toString para retonar informações do cliente.
+    @Override
+    public String toString() {
+        return String.format("%s, cpf: %s, e-mail: %s",nome, cpf, email);
     }
 }

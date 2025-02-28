@@ -1,5 +1,7 @@
+import java.util.UUID;
+
 public class Investimento {
-    private int idInvestimento;
+    private UUID idInvestimento = UUID.randomUUID();
     private String tipoInvestimento; // Ex: "Renda Fixa", "Renda Variável"
     private double montante;
     private double taxaJuros;
@@ -9,15 +11,14 @@ public class Investimento {
     }
     
     // Construtor com parâmetros
-    public Investimento(int idInvestimento, String tipoInvestimento, double montante, double taxaJuros) {
-        this.idInvestimento = idInvestimento;
+    public Investimento(String tipoInvestimento, double montante, double taxaJuros) {
         this.tipoInvestimento = tipoInvestimento;
         this.montante = montante;
         this.taxaJuros = taxaJuros;
     }
-    
+
     // Método para simular o cálculo do retorno do investimento
     public void calcularRetorno() {
-        System.out.println("Calculando retorno para investimento de " + tipoInvestimento + " com montante de: " + montante);
+        System.out.printf("Calculando retorno para investimento de: %s | com montante de: %.2f \n", tipoInvestimento, montante );
     }
 }
